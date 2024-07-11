@@ -60,9 +60,14 @@ print()
 
 
 def commitToGit():
-    os.system("git add .")
-    os.system('git commit -m "daily commit"')
-    os.system("git push origin main")
+
+    for commit in range(int(wanted_commits)):
+        with open("change.txt", "a") as file:
+            file.write(f"Change for the {date}: {commit}\n")
+
+        os.system("git add .")
+        os.system('git commit -m "daily commit"')
+        os.system("git push origin main")
 
 
 if not alreadyDoneToday:
