@@ -1,7 +1,6 @@
 import os
 from datetime import datetime
 
-username = None
 wanted_commits = None
 
 with open("info.txt", "r") as file:
@@ -62,7 +61,7 @@ def commitToGit():
     for commit in range(int(wanted_commits)):
         with open("change.txt", "a") as file:
 
-            file.write(f"Change for the {date}: {commit}\n")
+            file.write(f"Change for the {date}: {commit + 1}\n")
 
         os.system("git add .")
         os.system('git commit -m "daily commit"')
