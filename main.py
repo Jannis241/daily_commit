@@ -66,8 +66,8 @@ def count_lines(filename):
 
 def commitToGit():
 
-    if count_lines("log.txt") > 10:
-        with open("log.txt", "w"):
+    if count_lines("change.txt") > 10:
+        with open("change.txt", "w"):
             pass
 
     for commit in range(int(wanted_commits)):
