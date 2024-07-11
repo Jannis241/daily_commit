@@ -60,7 +60,7 @@ def commitToGit():
 
             file.write(f"Change for the {date}: {commit + 1}\n")
 
-        os.system("git add .")
+        os.system("git add change.txt")
         os.system('git commit -m "daily commit"')
         os.system("git push origin main")
 
