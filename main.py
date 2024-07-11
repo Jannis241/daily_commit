@@ -83,7 +83,6 @@ if alreadyDoneToday:
         variation = int(variation)
 
         randomRangeNum = random.randint(-variation, variation)
-        print("random num: ", randomRangeNum)
         commits = int(wanted_commits) + int(randomRangeNum)
 
         commitToGit(commits)
