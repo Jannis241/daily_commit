@@ -29,7 +29,6 @@ for line in lines:
         new_lines.append(line)
 
 
-
 if not wanted_commits:
     wanted_commits = input("How many commits do you want daily: ")
     new_lines.append("wanted_commits: " + wanted_commits + "\n")
