@@ -1,2 +1,2 @@
 username: Jannis241
-wanted_commits: 5
+wanted_commits: 3
