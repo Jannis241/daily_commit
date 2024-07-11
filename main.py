@@ -72,7 +72,7 @@ def commitToGit(commits):
             file.write(f"New change from {date} | ID: {generateID()}\n")
 
         os.system("git add change.txt")
-        os.system('git commit -m "daily commit"')
+        os.system(f'git commit -m "daily commit number: {commit + 1}"')
         os.system("git push origin main")
 
     input(f"Pushed {commits} times to git...")
