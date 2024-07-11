@@ -1,4 +1,5 @@
 import os
+import uuid
 from datetime import datetime
 
 wanted_commits = None
@@ -49,6 +50,10 @@ def count_lines(filename):
         return sum(1 for _ in file)
 
 
+def generateID():
+    return str(uuid.uuid4())
+
+
 def commitToGit():
 
     if count_lines("change.txt") > 1000:
@@ -57,8 +62,8 @@ def commitToGit():
 
     for commit in range(int(wanted_commits)):
         with open("change.txt", "a") as file:
-
-            file.write(f"Change for the {date}: {commit + 1}\n")
+            id = generateID
+            file.write(f"New change from {date} | ID: {generateID()}\n")
 
         os.system("git add change.txt")
         os.system('git commit -m "daily commit"')
