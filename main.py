@@ -70,6 +70,10 @@ def commitToGit():
         os.system("git push origin main")
 
 
+if alreadyDoneToday:
+    if input("Force it anyway (y/n): ") == "y":
+        commitToGit()
+
 if not alreadyDoneToday:
 
     with open("log.txt", "w") as file:
