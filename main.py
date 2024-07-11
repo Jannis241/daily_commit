@@ -59,13 +59,20 @@ print("Already done for today: ", alreadyDoneToday)
 print()
 
 
+def count_lines(filename):
+    with open(filename, "r") as file:
+        return sum(1 for _ in file)
+
+
 def commitToGit():
+
+    if count_lines("log.txt") > 10:
+        with open("log.txt", "w"):
+            pass
 
     for commit in range(int(wanted_commits)):
         with open("change.txt", "a") as file:
-            lines = len(file.readlines())
-            if lines > 1000:
-                
+
             file.write(f"Change for the {date}: {commit}\n")
 
         os.system("git add .")
