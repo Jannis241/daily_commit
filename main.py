@@ -12,11 +12,7 @@ for line in lines:
     if line.startswith("wanted_commits: "):
         wanted_commits = line.split(" ")[1].strip()
         print("Your current daily commits are:", wanted_commits)
-        if input("Do you want to change your daily commits (y/n): ") == "y":
-            wanted_commits = input("How many commits do you want daily: ")
-            new_lines.append("wanted_commits: " + wanted_commits + "\n")
-        else:
-            new_lines.append(line)
+        new_lines.append(line)
     else:
         new_lines.append(line)
 
@@ -56,7 +52,7 @@ def generateID():
 
 def commitToGit():
 
-    if count_lines("change.txt") > 1000:
+    if count_lines("change.txt") > 10000:
         with open("change.txt", "w"):
             pass
 
