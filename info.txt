@@ -1,1 +1,1 @@
-wanted_commits: 20
+wanted_commits: 2

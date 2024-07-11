@@ -27,9 +27,6 @@ if not wanted_commits:
 with open("info.txt", "w") as file:
     file.writelines(new_lines)
 
-with open("info.txt", "r") as file:
-    print(file.read())
-
 
 now = datetime.now()
 date = now.date()
