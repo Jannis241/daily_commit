@@ -84,7 +84,7 @@ if alreadyDoneToday:
 
         randomRangeNum = random.randint(-variation, variation)
         commits = int(wanted_commits) + int(randomRangeNum)
-
+        print("The random number generated is: ", randomRangeNum)
         commitToGit(commits)
 if not alreadyDoneToday:
 
@@ -93,6 +93,7 @@ if not alreadyDoneToday:
 
     commits = int(wanted_commits) + int(randomRangeNum)
 
+    print("The random number generated is: ", randomRangeNum)
     with open("log.txt", "w") as file:
         file.write(date + "\n")
 
