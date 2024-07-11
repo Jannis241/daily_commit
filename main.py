@@ -9,14 +9,6 @@ with open("info.txt", "r") as file:
 
 new_lines = []
 for line in lines:
-    if line.startswith("username: "):
-        username = line.split(" ")[1].strip()
-        print("Your username is:", username)
-        if input("Do you want to change your username (y/n): ") == "y":
-            username = input("What is your username: ")
-            new_lines.append("username: " + username + "\n")
-        else:
-            new_lines.append(line)
     if line.startswith("wanted_commits: "):
         wanted_commits = line.split(" ")[1].strip()
         print("Your current daily commits are:", wanted_commits)
