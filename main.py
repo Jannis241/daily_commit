@@ -1,8 +1,10 @@
 import os
+import random
 import uuid
 from datetime import datetime
 
 wanted_commits = None
+variation = None
 
 with open("info.txt", "r") as file:
     lines = file.readlines()
@@ -13,6 +15,10 @@ for line in lines:
         wanted_commits = line.split(" ")[1].strip()
         print("Your current daily commits are:", wanted_commits)
         new_lines.append(line)
+    elif line.startswith("range: "):
+        variation = line.split(" ")[1].strip()
+        print("The range is: ", variation)
+        new_lines.append(line)
     else:
         new_lines.append(line)
 
@@ -20,6 +26,10 @@ for line in lines:
 if not wanted_commits:
     wanted_commits = input("How many commits do you want daily: ")
     new_lines.append("wanted_commits: " + wanted_commits + "\n")
+
+if not range:
+    variation = input("What should the range be: ")
+    new_lines.append("range: " + str(range) + "\n")
 
 with open("info.txt", "w") as file:
     file.writelines(new_lines)
@@ -50,13 +60,13 @@ def generateID():
     return str(uuid.uuid4())
 
 
-def commitToGit():
+def commitToGit(commits):
 
     if count_lines("change.txt") > 10000:
         with open("change.txt", "w"):
             pass
 
-    for commit in range(int(wanted_commits)):
+    for commit in range(commits):
         with open("change.txt", "a") as file:
             id = generateID
             file.write(f"New change from {date} | ID: {generateID()}\n")
@@ -65,14 +75,26 @@ def commitToGit():
         os.system('git commit -m "daily commit"')
         os.system("git push origin main")
 
+    input(f"Pushed {commits} times to git...")
+
 
 if alreadyDoneToday:
     if input("Force it anyway (y/n): ") == "y":
-        commitToGit()
+        variation = int(variation)
 
+        randomRangeNum = random.randint(-variation, variation)
+        print("random num: ", randomRangeNum)
+        commits = int(wanted_commits) + int(randomRangeNum)
+
+        commitToGit(commits)
 if not alreadyDoneToday:
+
+    variation = int(variation)
+    randomRangeNum = random.randint(-variation, variation)
+
+    commits = int(wanted_commits) + int(randomRangeNum)
 
     with open("log.txt", "w") as file:
         file.write(date + "\n")
 
-    commitToGit()
+    commitToGit(commits)
