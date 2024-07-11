@@ -17,7 +17,7 @@ for line in lines:
             new_lines.append("username: " + username + "\n")
         else:
             new_lines.append(line)
-    elif line.startswith("wanted_commits: "):
+    if line.startswith("wanted_commits: "):
         wanted_commits = line.split(" ")[1].strip()
         print("Your current daily commits are:", wanted_commits)
         if input("Do you want to change your daily commits (y/n): ") == "y":
