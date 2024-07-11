@@ -28,9 +28,7 @@ for line in lines:
     else:
         new_lines.append(line)
 
-if not username:
-    username = input("What is your username: ")
-    new_lines.append("username: " + username + "\n")
+
 
 if not wanted_commits:
     wanted_commits = input("How many commits do you want daily: ")
