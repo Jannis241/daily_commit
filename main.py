@@ -63,7 +63,7 @@ def commitToGit():
 
     for commit in range(int(wanted_commits)):
         with open("change.txt", "a") as file:
-            zeilen 
+            lines = len(file.readlines())
             file.write(f"Change for the {date}: {commit}\n")
 
         os.system("git add .")
