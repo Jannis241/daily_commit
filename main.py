@@ -66,7 +66,7 @@ def count_lines(filename):
 
 def commitToGit():
 
-    if count_lines("change.txt") > 10:
+    if count_lines("change.txt") > 1000:
         with open("change.txt", "w"):
             pass
 
