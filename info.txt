@@ -1,2 +1,2 @@
-wanted_commits: 20
+wanted_commits: 50
 range: 10
